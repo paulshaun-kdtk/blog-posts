@@ -1,21 +1,17 @@
 class Post < ApplicationRecord
-  belongs_to :user
+  belongs_to :author, class_name: 'User', foreign_key: 'author_id' # Update this line
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
   validates :title, presence: true
   validates :text, presence: true
 
-  before_create :set_created_at
-  before_save :set_updated_at
+  before_validation :set_timestamps
 
   private
 
-  def set_created_at
+  def set_timestamps
     self.created_at ||= Time.current
-  end
-
-  def set_updated_at
     self.updated_at = Time.current
   end
 end
