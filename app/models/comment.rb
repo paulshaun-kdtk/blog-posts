@@ -12,6 +12,7 @@ class Comment < ApplicationRecord
     self.created_at ||= Time.current
     self.updated_at = Time.current
   end
+
   def update_comments_counter
     post.update(comments_counter: post.comments.count)
   end

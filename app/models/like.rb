@@ -14,6 +14,7 @@ class Like < ApplicationRecord
   def set_updated_at
     self.updated_at = Time.current
   end
+
   def update_likes_counter
     post.update(likes_counter: post.likes.count)
   end

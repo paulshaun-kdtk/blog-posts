@@ -15,6 +15,7 @@ class User < ApplicationRecord
     self.created_at ||= Time.current
     self.updated_at = Time.current
   end
+
   def recent_posts(limit = 3)
     posts.order(created_at: :desc).limit(limit)
   end
