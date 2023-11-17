@@ -2,14 +2,14 @@
 
 <div align="center">
   <br/>
-  <h3><b>Pen-It</b></h3>
+  <h3><b>Blog-Posts</b></h3>
 
 </div>
 
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Pen-It ](#-pen-it-)
+- [📖 Blog-Posts ](#-Blog-Posts-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -27,9 +27,9 @@
   - [📝 License ](#-license-)
 
 
-# 📖 Pen-It <a name="about-project"></a>
+# 📖 Blog-Posts <a name="about-project"></a>
 
-**Pen-it** is a blog website that is fully functional and that shows the list of posts and empower readers to interact with them by adding comments and liking posts.
+**Blog-Posts** is a blog website that is fully functional and that shows the list of posts and empower readers to interact with them by adding comments and liking posts.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -75,7 +75,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone git@github.com:wineshuga/pent-it.git
+  git clone git@github.com:paulshaun-kdtk/blog-posts.git
 ```
 
 ### Install
@@ -105,16 +105,9 @@ To run tests, run the following command:
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Nweneary Uzochukwu Winnie**
+👤 **Shaun Kudzai**
 
-- GitHub: [@wineshuga](https://github.com/wineshuga)
-- Twitter: [@wineshuga](https://twitter.com/wineshuga)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/wineshuga)
-  
-👤 **Toyyib Bello Omobolaji**
-
-- GitHub: [@simpleshaikh1](https://github.com/simpleshaikh1)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/Toyyib Abayomi)
+- GitHub: [@shaun](https://github.com/paulshaun-kdtk)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,7 +121,7 @@ To run tests, run the following command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/wineshuga/pen-it/issues/).
+Feel free to check the [issues page](https://github.com/paulshaun-kdtk/blog-posts/issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
