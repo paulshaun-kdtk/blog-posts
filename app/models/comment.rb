@@ -5,6 +5,7 @@ class Comment < ApplicationRecord
   validates :text, presence: true
 
   before_validation :set_timestamps
+  before_save :update_comments_counter
 
   def set_timestamps
     self.created_at ||= Time.current
@@ -12,6 +13,6 @@ class Comment < ApplicationRecord
   end
 
   def update_comments_counter
-    post.update(comments_counter: post.comments.count)
+    post.update(comments_counter: post.comments.count + 1)
   end
 end

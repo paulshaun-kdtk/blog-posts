@@ -29,4 +29,28 @@ RSpec.describe User, type: :model do
     subject.posts_counter = -2
     expect(subject).not_to be_valid
   end
+
+  it 'should return a user\'s last 3 posts' do
+    user = User.create(
+      name: 'demo',
+      bio: 'Software Developer',
+      photo: 'http://hello.com/org.png',
+      posts_counter: 0
+    )
+  
+    # Create 10 posts for the user
+    10.times do
+      Post.create(
+        title: 'Random title',
+        text: 'Hello, world',
+        user_id: user.id,
+        author_id: user.id,
+        likes_counter: 0,
+        comments_counter: 0
+      )
+    end
+  
+    recent_posts = user.recent_posts
+    expect(recent_posts.length).to eq(3)
+  end
 end
