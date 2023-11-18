@@ -37,7 +37,7 @@ RSpec.describe User, type: :model do
       photo: 'http://hello.com/org.png',
       posts_counter: 0
     )
-  
+
     # Create 10 posts for the user
     10.times do
       Post.create(
@@ -49,7 +49,7 @@ RSpec.describe User, type: :model do
         comments_counter: 0
       )
     end
-  
+
     recent_posts = user.recent_posts
     expect(recent_posts.length).to eq(3)
   end

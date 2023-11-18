@@ -5,12 +5,12 @@ RSpec.describe Like, type: :model do
   let(:post) { Post.create(title: 'Post Title', text: 'Post Text', author_id: user.id, user_id: user.id) }
 
   it 'is valid with valid attributes' do
-    like = Like.new(user: user, post: post)
+    like = Like.new(user:, post:)
     expect(like).to be_valid
   end
 
   it 'sets timestamps before creation' do
-    like = Like.create(user: user, post: post)
+    like = Like.create(user:, post:)
     expect(like.created_at).not_to be_nil
     expect(like.updated_at).not_to be_nil
   end

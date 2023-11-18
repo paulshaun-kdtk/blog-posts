@@ -12,11 +12,11 @@ RSpec.describe Post, type: :model do
       user = User.create(name: 'KDTK', bio: 'Graphic designer',
                          photo: 'http://hello.com/org.png', posts_counter: 0)
       post = Post.create(title: 'A new dawn', text: 'Software Developer', author_id: user.id, user_id: user.id)
-  
+
       10.times.collect do
         Comment.create(text: 'Hello, world', author_id: user.id, post_id: post.id)
       end
-  
+
       expect(post.recent_comments.length).to eq(5)
     end
   end
@@ -35,7 +35,7 @@ RSpec.describe Post, type: :model do
         posts_counter: 0
       )
 
-      post = Post.create(
+      Post.create(
         title: 'A new dawn',
         text: 'Software Developer',
         author_id: user.id,

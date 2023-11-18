@@ -21,8 +21,8 @@ RSpec.describe Comment, type: :model do
     expect(comment.updated_at).not_to be_nil
   end
   it 'updates the post comments_counter by one' do
-    comment = Comment.create!(user: user, post: post, text: 'Comment text')
+    Comment.create!(user:, post:, text: 'Comment text')
     post.reload
     expect(post.comments_counter).to eq(1)
-  end  
+  end
 end
