@@ -5,7 +5,6 @@ class Like < ApplicationRecord
   before_create :set_created_at
   before_save :set_updated_at
 
-
   def set_created_at
     self.created_at ||= Time.current
   end
