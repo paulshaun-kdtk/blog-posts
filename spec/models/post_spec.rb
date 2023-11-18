@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:user) { create(:user) }  # Assuming you have a User factory
+  let(:user) { create(:user) } # Assuming you have a User factory
 
   describe 'validations' do
     it { should validate_presence_of(:title) }
