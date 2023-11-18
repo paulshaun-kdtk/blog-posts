@@ -1,11 +1,10 @@
 class Like < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, class_name: 'User', foreign_key: 'author_id'
   belongs_to :post
 
   before_create :set_created_at
   before_save :set_updated_at
 
-  private
 
   def set_created_at
     self.created_at ||= Time.current
