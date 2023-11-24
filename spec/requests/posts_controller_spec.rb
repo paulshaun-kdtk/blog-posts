@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
-  let(:author) {User.create(name: 'KDTK', bio: 'Graphic designer', photo: 'http://hello.com/org.png', posts_counter: 0)}
+  let(:author) { User.create(name: 'KDTK', bio: 'Graphic designer', photo: 'http://hello.com/org.png', posts_counter: 0) }
   let(:post_params) { { title: 'Test Post', text: 'This is a test post.', author_id: author.id, user_id: author.id } }
   let(:post) { Post.create(post_params) }
-    puts('posts and author created successfully')
+  puts('posts and author created successfully')
 
   describe 'GET #index' do
     it 'returns a successful response' do

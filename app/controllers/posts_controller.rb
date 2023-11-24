@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-
-  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :find_post, only: %i[show edit update destroy]
 
   def index
     @posts = Post.all
@@ -24,7 +23,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-  # logic to edit a post
+    # logic to edit a post
   end
 
   # Action to handle the update of an existing post
@@ -42,7 +41,6 @@ class PostsController < ApplicationController
     redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
-  
   def find_post
     @post = Post.find(params[:id])
   end

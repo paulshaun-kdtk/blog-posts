@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  user = User.create(name: 'KDTK', bio: 'Graphic designer', photo: 'http://hello.com/org.png', posts_counter: 0)
+  generated_user = User.create(name: 'KDTK', bio: 'Graphic designer', photo: 'http://hello.com/org.png', posts_counter: 0)
 
   describe 'GET #index' do
     it 'returns a successful response' do
@@ -17,19 +17,19 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'GET #show' do
     it 'returns a successful response' do
-      user = user
+      user = generated_user
       get :show, params: { id: user.id }
       expect(response).to be_successful
     end
 
     it 'assigns the requested user to @user' do
-      user = user
+      user = generated_user
       get :show, params: { id: user.id }
       expect(assigns(:user)).to eq(user)
     end
 
     it 'renders the show template' do
-      user = user
+      user = generated_user
       get :show, params: { id: user.id }
       expect(response).to render_template('show')
     end
