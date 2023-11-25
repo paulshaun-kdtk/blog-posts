@@ -12,7 +12,6 @@ class PostsController < ApplicationController
 
   def show
     @recent_comments = @post.recent_comments
-    
   end
 
   def new

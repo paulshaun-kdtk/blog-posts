@@ -16,6 +16,7 @@ class Post < ApplicationRecord
     self.created_at ||= Time.current
     self.updated_at = Time.current
   end
+
   def likes_count
     likes.count
   end
@@ -27,7 +28,7 @@ class Post < ApplicationRecord
   def ordered_comments
     comments.order(created_at: :asc)
   end
-  
+
   def recent_comments
     comments.order(created_at: :desc).limit(5)
   end
