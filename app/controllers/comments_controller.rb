@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       redirect_to @post, alert: 'Error creating comment.'
     end
   end
-  
+
   def destroy
     @comment.destroy
     redirect_to @post, notice: 'Comment was successfully destroyed.'
