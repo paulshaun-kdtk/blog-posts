@@ -10,7 +10,7 @@ class LikesController < ApplicationController
       redirect_to @post, alert: 'Error creating like.'
     end
   end
-
+  
   def destroy
     @like.destroy
     redirect_to @post, notice: 'Like was successfully destroyed.'

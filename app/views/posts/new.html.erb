@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create a New Post</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body id="body">
+
+  <main class="heading">
+    <h1>Create a New Post</h1>
+  </main>
+
+  <div class="post-form">
+    <%= form_with(model: Post.new, url: posts_path, local: true) do |form| %>
+      <div class="field">
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+      </div>
+      <div class="field">
+        <%= form.label :text %>
+        <%= form.text_area :text, rows: 4 %>
+      </div>
+      <%= form.hidden_field :author_id, value: @current_user.id %>
+      <div class="actions">
+        <%= form.submit 'Create Post' %>
+      </div>
+    <% end %>
+  </div>
+
+  <p class="footer">
+  <a href="/">back to home</a>
+  </p>
+
+</body>
+</html>
