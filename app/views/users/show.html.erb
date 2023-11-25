@@ -2,31 +2,42 @@
 <html>
 <head>
   <title>My Blog</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
-<body>
-  <header>
-    <h1><%= @user.name %> 's Profile</h1>
-  </header>
 
+<body id="body">
+  <header class="heading">
+    <h1><%= @user.name %> 's Profile</h1>
+    </header>
+    
+    <div class="userContainer">
+    <img src="<%= @user.photo %>" alt="user profile"/>
+  <div class="userCard">
+  <h2><%= @user.name %> </h2>
   <p>Number of Posts: <%= @user.posts.count %></p>
+  </div>
+  </div>
   
-  <p><strong>Bio:</strong> <%= @user.bio %></p>
   
-  <h2>Recent Posts:</h2>
+  <p class="bioSection">
+  <strong>Bio:</strong> 
+  <span><%= @user.bio %> <span>
+  </p>
+  
   <% @recent_posts.each do |post| %>
-    <div>
-      <h3><%= post.title %></h3>
-      <p><%= post.text %></p>
-    </div>
+    <p class="bioSection">
+      <strong><%= post.title %></strong>
+      <span><%= post.text %></span>
+      <i>comments:  likes:</i>
+    </p>
   <% end %>
     
-  <p><%= link_to "All Posts", user_posts_path(@user) %></p>
-  
-  <li><a href="/">back to home</a></li>
+  <p class="footer">
+  <span>
+  <%= link_to "All Posts", user_posts_path(@user) %>
+  </span>
+  <a href="/">back to home</a>
+  </p>
     
-  <footer>
-    <p>&copy; 2022 My Blog. All rights reserved.</p>
-  </footer>
 </body>
 </html>
