@@ -2,10 +2,11 @@ class UsersController < ApplicationController
   before_action :find_user, only: %i[show edit update destroy]
 
   def index
-    @users = User.all
+    @users_with_posts_count = User.left_joins(:posts).select('users.*, COUNT(posts.id) AS posts_count').group('users.id').order('posts_count DESC')
   end
 
   def show
+    @user_posts = @user.posts
     @recent_posts = @user.recent_posts
   end
 
@@ -36,8 +37,6 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_url, notice: 'User was successfully destroyed.'
   end
-
-  private
 
   def find_user
     @user = User.find(params[:id])

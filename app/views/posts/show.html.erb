@@ -1,18 +1,27 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Blog Post</title>
+  <title><%= @post.title %></title>
 </head>
 <body>
-  <h1>Welcome to My Blog Post</h1>
+  <h1><%= @post.title %></h1>
+
+  <p><%= @post.text %></p>
+
+  <p><strong>Author:</strong> <%= @post.author.name %></p>
+
+  <p><strong>Likes:</strong> <%= @post.likes_count %></p>
   
-  <div>
-    <!-- Your blog post content goes here -->
-  </div>
+  <p><strong>Comments:</strong> <%= @post.comments_count %></p>
+
+  <h2>Comments:</h2>
+  <% @post.ordered_comments.each do |comment| %>
+    <div>
+      <p><strong><%= comment.user.name %>:</strong> <%= comment.text %></p>
+    </div>
+  <% end %>
+
+  <p><%= link_to "Back to All Posts", user_posts_path(@post.author_id) %></p>
   
-  <footer>
-    &copy; 2022 My Blog
-  </footer>
 </body>
 </html>

@@ -2,11 +2,17 @@ class PostsController < ApplicationController
   before_action :find_post, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.all
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @posts = @user.posts
+    else
+      @posts = Post.all
+    end
   end
 
   def show
     @recent_comments = @post.recent_comments
+    
   end
 
   def new

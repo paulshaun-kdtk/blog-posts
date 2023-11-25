@@ -3,17 +3,24 @@
 <html>
 <head>
   <title>My Blog</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="styles.css"> 
 </head>
 <body>
   <header>
-    <h1>Welcome to My Blog</h1>
+    <h1>Blog Posts Home</h1>
   </header>
 
   <main>
     <h2>Users</h2>
   </main>
 
+  <% @users_with_posts_count.each do |user| %>
+    <div>
+      <h2><%= link_to user.name, user %></h2>
+      <p>Posts count: <%= user.posts_count %></p>
+    </div>
+  <% end %>
+  
   <footer>
     <p>&copy; 2022 My Blog. All rights reserved.</p>
   </footer>

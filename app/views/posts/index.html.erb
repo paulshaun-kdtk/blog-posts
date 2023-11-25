@@ -1,10 +1,18 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Blog</title>
+  <title>Blog Posts</title>
 </head>
 <body>
-  <h1>Welcome to My blog</h1>
+  <h1><%= @user.name %>'s Posts</h1>
+
+  <% @posts.each do |post| %>
+    <div>
+      <h3><%= link_to post.title, post_path(post) %></h3>
+      <p><%= post.text %></p>
+    </div>
+  <% end %>
+  
+  <li><a href="/">back to home</a></li>
 </body>
 </html>
