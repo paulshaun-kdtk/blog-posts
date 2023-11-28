@@ -13,3 +13,88 @@
  *= require_tree .
  *= require_self
  */
+
+#body {
+  background-color: #fff;
+  padding: 15px;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.heading {
+  text-align: center;
+  font-weight: 400;
+  font-family: Times, serif;
+}
+
+.userContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.userContainer img {
+  width: 150px;
+  height: 150px;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  border: 1px solid black;
+}
+
+.userCard {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 10px;
+  width: 80%;
+  height: 5%;
+  margin-bottom: 2%;
+}
+
+.userCard h2 {
+  font-weight: 400;
+  color: #000;
+  font-family: Times, serif;
+}
+
+.bioSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+  width: 90%;
+  height: 5%;
+  margin: 0 auto 2%;
+}
+
+.bioSection i {
+  text-align: right;
+}
+
+.bioSection span a {
+  font-weight: 400;
+  font-family: Times, serif;
+  text-decoration: none;
+  padding-bottom: 3%;
+  color: rgb(20, 66, 94);
+}
+
+.bioSection span a:hover {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  border: 1px solid black;
+  padding: 5px;
+  font-weight: 400;
+  font-family: Times, serif;
+  width: 25%;
+  height: 5%;
+  margin: auto;
+}

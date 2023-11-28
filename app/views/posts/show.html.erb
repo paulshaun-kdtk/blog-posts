@@ -1,18 +1,43 @@
-
-<!DOCTYPE html>
 <html>
 <head>
-  <title>My Blog Post</title>
+  <title><%= @post.title %></title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <h1>Welcome to My Blog Post</h1>
-  
-  <div>
-    <!-- Your blog post content goes here -->
+  <p class="bioSection">
+    <strong><%= @post.title %> by <%= @post.author.name %></strong>
+    <i>Likes: <%= @post.likes_count %> , Comments: <%= @post.comments_count %></i>
+    <span><%= @post.text %></span>
+  </p>
+
+  <p class="bioSection">
+    <% @post.ordered_comments.each do |comment| %>
+      <span><strong><%= comment.user.name %>:</strong> <%= comment.text %></span>
+    <% end %>
+  </p>
+
+  <div class="comment-form">
+    <%= form_with(model: [@post, Comment.new], local: true) do |form| %>
+      <div class="field">
+        <%= form.label :text %>
+        <%= form.text_area :text, rows: 4 %>
+      </div>
+      <%= form.hidden_field :author_id, value: @current_user.id %>
+      <div class="actions">
+        <%= form.submit 'Add Comment' %>
+      </div>
+    <% end %>
   </div>
-  
-  <footer>
-    &copy; 2022 My Blog
-  </footer>
+
+  <div class="like-form">
+    <%= form_with(model: [@post, Like.new], local: true) do |form| %>
+      <%= form.hidden_field :author_id, value: @current_user.id %>
+      <div class="actions">
+        <%= form.submit 'Like' %>
+      </div>
+    <% end %>
+  </div>
+
+  <p class="footer"><%= link_to "Back to All Posts", user_posts_path(@post.author_id) %></p>
 </body>
 </html>

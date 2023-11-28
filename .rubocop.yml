@@ -32,6 +32,8 @@ Style/GlobalVars:
   Enabled: false  
 Metrics/CyclomaticComplexity:
   Enabled: false
+Style/TrivialAccessors:
+  Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
 
@@ -57,4 +59,6 @@ Style/HashEachMethods:
 Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
+  Enabled: false
+Naming/MemoizedInstanceVariableName:
   Enabled: false

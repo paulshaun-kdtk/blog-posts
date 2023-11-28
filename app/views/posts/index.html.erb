@@ -1,10 +1,32 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Blog</title>
-</head>
+  <title>Blog Posts</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
 <body>
-  <h1>Welcome to My blog</h1>
+
+<div class="userContainer">
+<img src="<%= @user.photo %>" alt="user profile"/>
+<div class="userCard">
+<h2><%= @user.name %> </h2>
+<p>Number of Posts: <%= @user.posts.count %></p>
+</div>
+</div>
+
+  <% @posts.each do |post| %>
+    <p class="bioSection">
+      <span><%= link_to post.title, post_path(post) %></span>
+      <span><%= post.text %></span>
+    </p>
+    
+    <p class="bioSection">
+    <% post.ordered_comments.each do |comment| %>
+        <span><strong><%= comment.user.name %>:</strong> <%= comment.text %></span>
+        <% end %>
+        </p>
+  <% end %>
+  
+  <span class="footer"><a href="/">back to home</a></span>
 </body>
 </html>

@@ -1,28 +1,43 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>My Blog</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
-<body>
-  <header>
-    <h1>Welcome to My Blog</h1>
-  </header>
 
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <h2>User Profile</h2>
-    <!-- Add your user profile content here -->
-  </main>
-
-  <footer>
-    <p>&copy; 2022 My Blog. All rights reserved.</p>
-  </footer>
+<body id="body">
+  <header class="heading">
+    <h1><%= @user.name %> 's Profile</h1>
+    </header>
+    
+    <div class="userContainer">
+    <img src="<%= @user.photo %>" alt="user profile"/>
+  <div class="userCard">
+  <h2><%= @user.name %> </h2>
+  <p>Number of Posts: <%= @user.posts.count %></p>
+  </div>
+  </div>
+  
+  
+  <p class="bioSection">
+  <strong>Bio:</strong> 
+  <span><%= @user.bio %> <span>
+  </p>
+  
+  <% @recent_posts.each do |post| %>
+    <p class="bioSection">
+      <strong><%= post.title %></strong>
+      <span><%= post.text %></span>
+      <i>comments:  likes:</i>
+    </p>
+  <% end %>
+    
+  <p class="footer">
+  <span>
+  <%= link_to "All Posts", user_posts_path(@user) %>
+  </span>
+  <a href="/">back to home</a>
+  </p>
+    
 </body>
 </html>
