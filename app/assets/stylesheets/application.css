@@ -108,14 +108,6 @@
   margin-top: 10px;
 }
 
-.pagination a, .pagination span {
-  padding: 5px;
-  margin: 0 2px;
-  border: 1px solid #ddd;
-  text-decoration: none;
-  color: #333;
-}
-
 .pagination .current {
   background-color: #007bff;
   color: #fff;
