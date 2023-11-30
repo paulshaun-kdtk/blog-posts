@@ -1,8 +1,9 @@
 # spec/factories/posts.rb
 FactoryBot.define do
   factory :post do
-    title { 'Test Post' }
-    text { 'This is a test post.' }
+    title { Faker::Lorem.sentence }
+    text { Faker::Lorem.paragraph }
     association :author, factory: :user
+    user { author }
   end
 end

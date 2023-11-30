@@ -1,9 +1,9 @@
 # spec/factories/users.rb
 FactoryBot.define do
   factory :user do
-    name { 'KDTK' }
-    bio { 'Graphic designer' }
-    photo { 'http://hello.com/org.png' }
-    posts_counter { 0 }
+    name { Faker::Name.name }
+    photo { Faker::Internet.url }
+    bio { Faker::Lorem.sentence }
+    posts_counter { Faker::Number.number(digits: 2) }
   end
 end
