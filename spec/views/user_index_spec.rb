@@ -17,5 +17,14 @@ RSpec.feature 'User index page', type: :feature do
     expect(page).to have_css("img[src*='#{user1.photo}']")
     expect(page).to have_css("img[src*='#{user2.photo}']")
   end
+
+  scenario 'I can see the number of posts each user has written' do
+    expect(page).to have_content("Posts count: #{user1.recent_posts.count}")
+    expect(page).to have_content("Posts count: #{user2.recent_posts.count}")
+  end
+
+  scenario 'When I click on a user, I am redirected to that user\'s show page' do
+    click_link user1.name
+    expect(current_path).to eq(user_path(user1))
   end
 end
