@@ -12,6 +12,8 @@ class Post < ApplicationRecord
 
   after_save :update_posts_counter
 
+  WillPaginate.per_page = 10
+
   def set_timestamps
     self.created_at ||= Time.current
     self.updated_at = Time.current

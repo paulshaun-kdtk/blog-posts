@@ -3,30 +3,41 @@
 <head>
   <title>Blog Posts</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 <body>
 
 <div class="userContainer">
-<img src="<%= @user.photo %>" alt="user profile"/>
-<div class="userCard">
-<h2><%= @user.name %> </h2>
-<p>Number of Posts: <%= @user.posts.count %></p>
-</div>
+  <img src="<%= @user.photo %>" alt="user profile"/>
+  <div class="userCard">
+    <h2><%= @user.name %> </h2>
+    <p>Number of Posts: <%= @user.posts.count %></p>
+  </div>
 </div>
 
-  <% @posts.each do |post| %>
+<% @posts.each do |post| %>
+  <div class="postContainer">
     <p class="bioSection">
       <span><%= link_to post.title, post_path(post) %></span>
       <span><%= post.text %></span>
-    </p>
-    
+      <i>
+      <span>Likes: <%= post.likes.count %></span>
+      <span>Comments: <%= post.comments.count %></span>
+    </i>
+      </p>
+
     <p class="bioSection">
-    <% post.ordered_comments.each do |comment| %>
+      <% post.ordered_comments.limit(3).each do |comment| %>
         <span><strong><%= comment.user.name %>:</strong> <%= comment.text %></span>
-        <% end %>
-        </p>
-  <% end %>
-  
-  <span class="footer"><a href="/">back to home</a></span>
+      <% end %>
+    </p>
+
+  </div>
+<% end %>
+
+<div class="pagination">
+  <%= will_paginate @posts %>
+</div>
+
+<span ><a  href="/" class="footer">back to home</a></span>
 </body>
 </html>

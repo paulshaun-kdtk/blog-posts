@@ -4,6 +4,5 @@ FactoryBot.define do
     title { Faker::Lorem.sentence }
     text { Faker::Lorem.paragraph }
     association :author, factory: :user
-    user { author }
   end
 end
