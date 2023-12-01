@@ -43,7 +43,7 @@ RSpec.describe 'posts/index', type: :view do
   it 'displays the first comments on a post' do
     render
     user.posts.each do |post|
-      post.comments.first(3).each do |comment| 
+      post.comments.first(3).each do |comment|
         expect(rendered).to have_content(comment.body)
       end
     end
