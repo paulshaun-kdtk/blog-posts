@@ -4,6 +4,8 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
+  
+  <span><%= link_to @post.title, post_path(@post) %></span>
   <p class="bioSection">
     <strong><%= @post.title %> by <%= @post.author.name %></strong>
     <i>Likes: <%= @post.likes_count %> , Comments: <%= @post.comments_count %></i>

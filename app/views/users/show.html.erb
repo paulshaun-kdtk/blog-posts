@@ -26,9 +26,9 @@
   
   <% @recent_posts.each do |post| %>
     <p class="bioSection">
-      <strong><%= post.title %></strong>
-      <span><%= post.text %></span>
-      <i>comments:  likes:</i>
+    <span><%= link_to post.title, post_path(post) %></span>
+    <span><%= post.text %></span>
+    <i>comments:  likes:</i>
     </p>
   <% end %>
     

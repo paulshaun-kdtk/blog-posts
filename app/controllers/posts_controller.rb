@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: %i[show edit update destroy]
+  before_action :find_post, only: %i[index show edit update destroy]
 
   def index
     if params[:user_id]
       @user = User.find(params[:user_id])
-      @posts = @user.posts
+      @posts = @user.posts.includes(:comments).paginate(page: params[:page], per_page: 10)
     else
-      @posts = Post.all
+      @posts = Post.paginate(page: params[:page], per_page: 10)
     end
   end
 
@@ -31,7 +31,6 @@ class PostsController < ApplicationController
     # logic to edit a post
   end
 
-  # Action to handle the update of an existing post
   def update
     if @post.update(post_params)
       redirect_to @post, notice: 'Post was successfully updated.'
@@ -40,14 +39,13 @@ class PostsController < ApplicationController
     end
   end
 
-  # Action to destroy an existing post
   def destroy
     @post.destroy
     redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
   def find_post
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:user_id] || params[:id])
   end
 
   def post_params
