@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   def index
     if params[:user_id]
       @user = User.find(params[:user_id])
-      @posts = @user.posts.paginate(page: params[:page], per_page: 10)
+      @posts = @user.posts.includes(:comments).paginate(page: params[:page], per_page: 10)
     else
       @posts = Post.paginate(page: params[:page], per_page: 10)
     end

@@ -25,4 +25,48 @@ RSpec.describe 'posts/index', type: :view do
     render
     expect(rendered).to have_link('back to home', href: '/')
   end
+
+  it 'displays the post titles' do
+    render
+    user.posts.each do |post|
+      expect(rendered).to have_content(post.title)
+    end
+  end
+
+  it 'displays some of the post bodies' do
+    render
+    user.posts.each do |post|
+      expect(rendered).to have_content(post.body.truncate(50))
+    end
+  end
+
+  it 'displays the first comments on a post' do
+    render
+    user.posts.each do |post|
+      post.comments.first(3).each do |comment| 
+        expect(rendered).to have_content(comment.body)
+      end
+    end
+  end
+
+  it 'displays the number of comments a post has' do
+    render
+    user.posts.each do |post|
+      expect(rendered).to have_content("Comments: #{post.comments.count}")
+    end
+  end
+
+  it 'displays the number of likes a post has' do
+    render
+    user.posts.each do |post|
+      expect(rendered).to have_content("Likes: #{post.likes.count}")
+    end
+  end
+
+  it 'redirects to the post\'s show page when clicking on a post' do
+    render
+    user.posts.each do |post|
+      expect(rendered).to have_link(post.title, href: post_path(post))
+    end
+  end
 end
