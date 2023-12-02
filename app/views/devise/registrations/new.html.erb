@@ -1,0 +1,50 @@
+<head>
+  <title>Blog Posts</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<h2 class="heading">Sign up</h2>
+
+<div class="formControl">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+  </div>
+
+  <!-- Add fields for additional User attributes -->
+  <div class="field">
+    <%= f.text_field :name, autocomplete: "name", placeholder: "Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :photo, autocomplete: "photo", placeholder: "Photo URL" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_area :bio, autocomplete: "bio", placeholder: "Bio" %>
+  </div>
+
+  <!-- Adjust the password-related fields -->
+  <div class="field">
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+
+<% end %>
+</div>
+
+<div class="footer">
+<%= render "devise/shared/links" %>
+</div>

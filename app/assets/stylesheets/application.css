@@ -98,3 +98,61 @@
   height: 5%;
   margin: auto;
 }
+
+/* pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pagination .current {
+  background-color: #007bff;
+  color: #e4a2a2;
+}
+
+/* end pagination */
+
+.checkfield {
+  text-align: left;
+}
+
+.checkField input {
+  margin: 0 -48%;
+  padding: 0;
+}
+
+.formControl {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 10px;
+  width: 40%;
+  margin: auto;
+}
+
+.formControl form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.formControl form input {
+  padding: 10px;
+  margin-bottom: 2%;
+  width: 100%;
+}
+
+.formControl form textarea {
+  padding: 10px;
+  margin-bottom: 2%;
+  width: 100%;
+}
+
+.formControl form input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+}

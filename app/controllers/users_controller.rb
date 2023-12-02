@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[show update destroy create]
+  before_action :find_user, only: %i[show update destroy]
 
   def index
     @users_with_posts_count = User.left_joins(:posts).select('users.*, COUNT(posts.id) AS posts_count').group('users.id').order('posts_count DESC')
@@ -23,8 +24,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit; end
-
   def update
     if @user.update(user_params)
       redirect_to @user, notice: 'User was successfully updated.'
@@ -38,8 +37,19 @@ class UsersController < ApplicationController
     redirect_to users_url, notice: 'User was successfully destroyed.'
   end
 
+  def restrict_user_creation_if_users_exist
+    redirect_to root_path, alert: 'New user creation is not allowed.' if User.any?
+  end
+
+  private
+
   def find_user
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
+
+    return if @user
+
+    flash[:alert] = 'User not found'
+    redirect_to root_path
   end
 
   def user_params

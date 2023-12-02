@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
+
   root 'users#index'
 
-  resources :users, only: %i[index show] do
+  resources :users, only: %i[create index show new edit update destroy] do
     resources :posts, only: %i[index show new create destroy]
   end
 
