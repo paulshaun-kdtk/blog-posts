@@ -27,10 +27,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-    # logic to edit a post
-  end
-
   def update
     if @post.update(post_params)
       redirect_to @post, notice: 'Post was successfully updated.'

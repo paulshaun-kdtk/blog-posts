@@ -62,3 +62,6 @@ Style/HashTransformValues:
   Enabled: false
 Naming/MemoizedInstanceVariableName:
   Enabled: false
+
+  
+  
