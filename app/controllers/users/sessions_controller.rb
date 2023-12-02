@@ -1,5 +1,3 @@
 class Users::SessionsController < Devise::SessionsController
-    # Your custom code here
-    
-  end
-  
+  # Your custom code here
+end

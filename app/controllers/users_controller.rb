@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :update, :destroy, :create]
-  before_action :find_user, only: [:show, :update, :destroy]
-  
+  before_action :authenticate_user!, only: %i[show update destroy create]
+  before_action :find_user, only: %i[show update destroy]
+
   def index
     @users_with_posts_count = User.left_joins(:posts).select('users.*, COUNT(posts.id) AS posts_count').group('users.id').order('posts_count DESC')
   end
@@ -46,10 +46,10 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find_by(id: params[:id])
 
-    unless @user
-      flash[:alert] = 'User not found'
-      redirect_to root_path
-    end
+    return if @user
+
+    flash[:alert] = 'User not found'
+    redirect_to root_path
   end
 
   def user_params
